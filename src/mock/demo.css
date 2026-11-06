@@ -1,0 +1,16 @@
+/* Demo-only entry for Tailwind. The host system already loads Tailwind 4, so this file is not handed over. */
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+}

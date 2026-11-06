@@ -1,0 +1,836 @@
+  {
+    "name": "Template Internet Day",
+    "version": "1.0.0",
+    "author": "namhaido",
+    "language": [
+      "vi",
+      "en"
+    ],
+    "defaultData": {
+      "customCSS": "",
+      "metadata": {
+        "title": {
+          "vi": "Đăng ký tham gia Internet Day 2026",
+          "en": "Register for Internet Day 2026"
+        },
+        "description": {
+          "vi": "Đăng ký tham dự Internet Day 2026: Từ Internet an toàn đến Tương lai số đáng tin cậy.",
+          "en": "Register for Internet Day 2026: From Safer Internet to Trusted Digital Future."
+        },
+        "icon": "/favicon.png"
+      },
+      "Theme": {
+        "primaryColor": "#2bd98f",
+        "secondaryColor": "#1659c7",
+        "backgroundColor": "#0b3350",
+        "fontUrl": "https://fonts.googleapis.com/css2?family=League+Spartan:wght@600;700&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap",
+        "headingFont": "League Spartan",
+        "bodyFont": "Montserrat"
+      },
+      "Hero": {
+        "bannerImage": "/internet-day/banner-desktop.webp",
+        "bannerImageMobile": "/internet-day/banner-mobile.webp",
+        "logo": "/internet-day/logo-internet-day.png",
+        "logoAlt": {
+          "vi": "Internet Day 2026: From Safer Internet to Trusted Digital Future",
+          "en": "Internet Day 2026: From Safer Internet to Trusted Digital Future"
+        },
+        "partnerLogo": "/internet-day/logo-partners.png",
+        "partnerLogoAlt": {
+          "vi": "Logo Internet Day 2026 và Hiệp hội Internet Việt Nam (VIA)",
+          "en": "Internet Day 2026 and Vietnam Internet Association (VIA) logos"
+        },
+        "title": {
+          "vi": "Internet Day 2026",
+          "en": "Internet Day 2026"
+        },
+        "tagline": {
+          "vi": "Từ Internet an toàn đến Tương lai số đáng tin cậy",
+          "en": "From Safer Internet to Trusted Digital Future"
+        },
+        "dateText": {
+          "vi": "Thứ Năm, 03/12/2026, 08:00 – 17:00",
+          "en": "Thursday, 3 December 2026, 08:00 – 17:00"
+        },
+        "location": {
+          "vi": "Khách sạn Pullman, 61 Giảng Võ, phường Ô Chợ Dừa, Hà Nội",
+          "en": "Pullman Hotel, 61 Giang Vo, O Cho Dua Ward, Hanoi"
+        },
+        "description": {
+          "vi": "Diễn đàn đối thoại giữa cơ quan quản lý, doanh nghiệp, tổ chức quốc tế, giới nghiên cứu và cộng đồng Internet về tương lai của Internet trong kỷ nguyên AI, do Hiệp hội Internet Việt Nam tổ chức.",
+          "en": "A forum where regulators, businesses, international organizations, researchers and the internet community discuss the future of the internet in the AI era, organized by the Vietnam Internet Association."
+        }
+      },
+      "Agenda": [
+        {
+          "time": "08:00",
+          "label": {
+            "vi": "Đón khách",
+            "en": "Check-in"
+          }
+        },
+        {
+          "time": "09:00",
+          "label": {
+            "vi": "Khai mạc",
+            "en": "Opening"
+          }
+        }
+      ],
+      "Labels": {
+        "registerNow": {
+          "vi": "Đăng ký ngay",
+          "en": "Register now"
+        },
+        "agendaHeading": {
+          "vi": "Lịch trình",
+          "en": "Schedule"
+        },
+        "formHeading": {
+          "vi": "ĐĂNG KÝ THAM GIA",
+          "en": "REGISTER TO ATTEND"
+        },
+        "ticketLegend": {
+          "vi": "Loại vé",
+          "en": "Ticket type"
+        },
+        "sessionLegend": {
+          "vi": "Phiên tham dự",
+          "en": "Session"
+        },
+        "detailsLegend": {
+          "vi": "Thông tin người tham dự",
+          "en": "Attendee details"
+        },
+        "submit": {
+          "vi": "Gửi đăng ký",
+          "en": "Submit registration"
+        },
+        "registerAgain": {
+          "vi": "Đăng ký mới",
+          "en": "New registration"
+        }
+      },
+      "Form": {
+        "showDiscount": false,
+        "showTerms": false,
+        "showSummary": false,
+        "showCompany": true,
+        "showPosition": true,
+        "showWorkplace": true,
+        "showIndustry": true,
+        "showRole": true,
+        "showPosterLogos": false,
+        "showSessionTime": false,
+        "showSessionDescription": false,
+        "multipleSessions": true,
+        "hideFreeTicketChoice": true,
+        "industryOptions": [
+          {
+            "value": "government",
+            "label": {
+              "vi": "Cơ quan quản lý nhà nước",
+              "en": "Government agency"
+            }
+          },
+          {
+            "value": "telecom",
+            "label": {
+              "vi": "Viễn thông, Internet",
+              "en": "Telecoms and internet"
+            }
+          },
+          {
+            "value": "it",
+            "label": {
+              "vi": "Công nghệ thông tin",
+              "en": "Information technology"
+            }
+          },
+          {
+            "value": "finance",
+            "label": {
+              "vi": "Tài chính, ngân hàng",
+              "en": "Finance and banking"
+            }
+          },
+          {
+            "value": "education",
+            "label": {
+              "vi": "Giáo dục, nghiên cứu",
+              "en": "Education and research"
+            }
+          },
+          {
+            "value": "other",
+            "label": {
+              "vi": "Khác",
+              "en": "Other"
+            }
+          }
+        ],
+        "roleOptions": [
+          {
+            "value": "delegate",
+            "label": {
+              "vi": "Đại biểu",
+              "en": "Delegate"
+            }
+          },
+          {
+            "value": "speaker",
+            "label": {
+              "vi": "Diễn giả",
+              "en": "Speaker"
+            }
+          },
+          {
+            "value": "press",
+            "label": {
+              "vi": "Báo chí",
+              "en": "Press"
+            }
+          },
+          {
+            "value": "sponsor",
+            "label": {
+              "vi": "Nhà tài trợ",
+              "en": "Sponsor"
+            }
+          },
+          {
+            "value": "guest",
+            "label": {
+              "vi": "Khách mời",
+              "en": "Guest"
+            }
+          }
+        ],
+        "backgroundImage": "",
+        "backgroundImageMobile": "",
+        "termsText": {
+          "vi": "Tôi đồng ý với điều khoản tham dự và cho phép ban tổ chức dùng thông tin trên để xử lý đăng ký.",
+          "en": "I agree to the attendance terms and allow the organizers to use these details to process my registration."
+        },
+        "termsDetail": {
+          "vi": "Thông tin đăng ký chỉ dùng để xác nhận chỗ, gửi vé và liên hệ về sự kiện. Mỗi vé dùng cho một người, vui lòng xuất trình mã QR khi vào cửa.",
+          "en": "Your details are only used to confirm your place, send your ticket and contact you about the event. Each ticket admits one person. Please show the QR code at the entrance."
+        }
+      },
+      "Confirmation": {
+        "thankYouTitle": {
+          "vi": "Cảm ơn bạn đã đăng ký!",
+          "en": "Thank you for registering!"
+        },
+        "thankYouMessage": {
+          "vi": "Hẹn gặp bạn tại Internet Day 2026. Vui lòng giữ lại mã vé bên cạnh để làm thủ tục vào cửa.",
+          "en": "See you at Internet Day 2026. Please keep the ticket code shown here for check-in."
+        }
+      },
+      "Footer": {
+        "note": {
+          "vi": "Đơn vị tổ chức: Hiệp hội Internet Việt Nam (VIA). Liên hệ: internetday.vn@via.org.vn",
+          "en": "Organized by the Vietnam Internet Association (VIA). Contact: internetday.vn@via.org.vn"
+        }
+      }
+    },
+    "editable": {
+      "customCSS": {
+        "type": "code",
+        "language": "css",
+        "label": "Custom CSS"
+      },
+      "metadata": {
+        "type": "block",
+        "label": "SEO",
+        "fields": {
+          "title": {
+            "type": "block",
+            "label": "Page title",
+            "fields": {
+              "vi": {
+                "type": "text",
+                "label": "Vietnamese",
+                "maxLength": 100,
+                "required": true
+              },
+              "en": {
+                "type": "text",
+                "label": "English",
+                "maxLength": 100,
+                "required": true
+              }
+            }
+          },
+          "description": {
+            "type": "block",
+            "label": "Page description",
+            "fields": {
+              "vi": {
+                "type": "textarea",
+                "label": "Vietnamese",
+                "maxLength": 300
+              },
+              "en": {
+                "type": "textarea",
+                "label": "English",
+                "maxLength": 300
+              }
+            }
+          },
+          "icon": {
+            "type": "image",
+            "label": "Favicon",
+            "accept": "image/png,image/x-icon"
+          }
+        }
+      },
+      "Theme": {
+        "type": "block",
+        "label": "Colors and fonts",
+        "fields": {
+          "primaryColor": {
+            "type": "color",
+            "label": "Primary color"
+          },
+          "secondaryColor": {
+            "type": "color",
+            "label": "Secondary color"
+          },
+          "backgroundColor": {
+            "type": "color",
+            "label": "Background color"
+          },
+          "fontUrl": {
+            "type": "url",
+            "label": "Font stylesheet address (https)"
+          },
+          "headingFont": {
+            "type": "text",
+            "label": "Heading font name",
+            "maxLength": 60
+          },
+          "bodyFont": {
+            "type": "text",
+            "label": "Body font name",
+            "maxLength": 60
+          }
+        }
+      },
+      "Hero": {
+        "type": "block",
+        "label": "Hero",
+        "fields": {
+          "bannerImage": {
+            "type": "image",
+            "label": "Page artwork, shown in the bottom corner (desktop, about 2000 x 860)",
+            "accept": "image/png,image/jpeg,image/webp"
+          },
+          "bannerImageMobile": {
+            "type": "image",
+            "label": "Page artwork, shown in the bottom corner (mobile, about 860 x 1300)",
+            "accept": "image/png,image/jpeg,image/webp"
+          },
+          "logo": {
+            "type": "image",
+            "label": "Event logo",
+            "accept": "image/png,image/webp,image/svg+xml"
+          },
+          "logoAlt": {
+            "type": "block",
+            "label": "Event logo description",
+            "fields": {
+              "vi": {
+                "type": "text",
+                "label": "Vietnamese",
+                "maxLength": 150
+              },
+              "en": {
+                "type": "text",
+                "label": "English",
+                "maxLength": 150
+              }
+            }
+          },
+          "partnerLogo": {
+            "type": "image",
+            "label": "Organizer logos",
+            "accept": "image/png,image/webp,image/svg+xml"
+          },
+          "partnerLogoAlt": {
+            "type": "block",
+            "label": "Organizer logos description",
+            "fields": {
+              "vi": {
+                "type": "text",
+                "label": "Vietnamese",
+                "maxLength": 150
+              },
+              "en": {
+                "type": "text",
+                "label": "English",
+                "maxLength": 150
+              }
+            }
+          },
+          "title": {
+            "type": "block",
+            "label": "Event title",
+            "fields": {
+              "vi": {
+                "type": "text",
+                "label": "Vietnamese",
+                "maxLength": 150,
+                "required": true
+              },
+              "en": {
+                "type": "text",
+                "label": "English",
+                "maxLength": 150,
+                "required": true
+              }
+            }
+          },
+          "tagline": {
+            "type": "block",
+            "label": "Tagline",
+            "fields": {
+              "vi": {
+                "type": "text",
+                "label": "Vietnamese",
+                "maxLength": 150
+              },
+              "en": {
+                "type": "text",
+                "label": "English",
+                "maxLength": 150
+              }
+            }
+          },
+          "dateText": {
+            "type": "block",
+            "label": "Date and time",
+            "fields": {
+              "vi": {
+                "type": "text",
+                "label": "Vietnamese",
+                "maxLength": 100
+              },
+              "en": {
+                "type": "text",
+                "label": "English",
+                "maxLength": 100
+              }
+            }
+          },
+          "location": {
+            "type": "block",
+            "label": "Location",
+            "fields": {
+              "vi": {
+                "type": "text",
+                "label": "Vietnamese",
+                "maxLength": 200
+              },
+              "en": {
+                "type": "text",
+                "label": "English",
+                "maxLength": 200
+              }
+            }
+          },
+          "description": {
+            "type": "block",
+            "label": "Short description",
+            "fields": {
+              "vi": {
+                "type": "textarea",
+                "label": "Vietnamese",
+                "maxLength": 400
+              },
+              "en": {
+                "type": "textarea",
+                "label": "English",
+                "maxLength": 400
+              }
+            }
+          }
+        }
+      },
+      "Agenda": {
+        "type": "repeater",
+        "label": "Agenda",
+        "fields": {
+          "time": {
+            "type": "text",
+            "label": "Time",
+            "maxLength": 20
+          },
+          "label": {
+            "type": "block",
+            "label": "Label",
+            "fields": {
+              "vi": {
+                "type": "text",
+                "label": "Vietnamese",
+                "maxLength": 100
+              },
+              "en": {
+                "type": "text",
+                "label": "English",
+                "maxLength": 100
+              }
+            }
+          }
+        }
+      },
+      "Labels": {
+        "type": "block",
+        "label": "Interface wording",
+        "fields": {
+          "registerNow": {
+            "type": "block",
+            "label": "Hero button",
+            "fields": {
+              "vi": {
+                "type": "text",
+                "label": "Vietnamese",
+                "maxLength": 80
+              },
+              "en": {
+                "type": "text",
+                "label": "English",
+                "maxLength": 80
+              }
+            }
+          },
+          "agendaHeading": {
+            "type": "block",
+            "label": "Agenda heading",
+            "fields": {
+              "vi": {
+                "type": "text",
+                "label": "Vietnamese",
+                "maxLength": 80
+              },
+              "en": {
+                "type": "text",
+                "label": "English",
+                "maxLength": 80
+              }
+            }
+          },
+          "formHeading": {
+            "type": "block",
+            "label": "Form heading",
+            "fields": {
+              "vi": {
+                "type": "text",
+                "label": "Vietnamese",
+                "maxLength": 80
+              },
+              "en": {
+                "type": "text",
+                "label": "English",
+                "maxLength": 80
+              }
+            }
+          },
+          "ticketLegend": {
+            "type": "block",
+            "label": "Ticket group heading",
+            "fields": {
+              "vi": {
+                "type": "text",
+                "label": "Vietnamese",
+                "maxLength": 80
+              },
+              "en": {
+                "type": "text",
+                "label": "English",
+                "maxLength": 80
+              }
+            }
+          },
+          "sessionLegend": {
+            "type": "block",
+            "label": "Session group heading",
+            "fields": {
+              "vi": {
+                "type": "text",
+                "label": "Vietnamese",
+                "maxLength": 80
+              },
+              "en": {
+                "type": "text",
+                "label": "English",
+                "maxLength": 80
+              }
+            }
+          },
+          "detailsLegend": {
+            "type": "block",
+            "label": "Attendee group heading",
+            "fields": {
+              "vi": {
+                "type": "text",
+                "label": "Vietnamese",
+                "maxLength": 80
+              },
+              "en": {
+                "type": "text",
+                "label": "English",
+                "maxLength": 80
+              }
+            }
+          },
+          "submit": {
+            "type": "block",
+            "label": "Submit button",
+            "fields": {
+              "vi": {
+                "type": "text",
+                "label": "Vietnamese",
+                "maxLength": 80
+              },
+              "en": {
+                "type": "text",
+                "label": "English",
+                "maxLength": 80
+              }
+            }
+          },
+          "registerAgain": {
+            "type": "block",
+            "label": "New registration button",
+            "fields": {
+              "vi": {
+                "type": "text",
+                "label": "Vietnamese",
+                "maxLength": 80
+              },
+              "en": {
+                "type": "text",
+                "label": "English",
+                "maxLength": 80
+              }
+            }
+          }
+        }
+      },
+      "Form": {
+        "type": "block",
+        "label": "Registration form",
+        "fields": {
+          "showDiscount": {
+            "type": "toggle",
+            "label": "Show discount code field"
+          },
+          "showTerms": {
+            "type": "toggle",
+            "label": "Show terms checkbox"
+          },
+          "showSummary": {
+            "type": "toggle",
+            "label": "Show ticket summary above the submit button"
+          },
+          "showCompany": {
+            "type": "toggle",
+            "label": "Show organization field"
+          },
+          "showPosition": {
+            "type": "toggle",
+            "label": "Show job title field"
+          },
+          "showWorkplace": {
+            "type": "toggle",
+            "label": "Show work position field"
+          },
+          "showIndustry": {
+            "type": "toggle",
+            "label": "Show industry field"
+          },
+          "showRole": {
+            "type": "toggle",
+            "label": "Show attending-as field"
+          },
+          "showPosterLogos": {
+            "type": "toggle",
+            "label": "Repeat the logos at the top of the form"
+          },
+          "showSessionTime": {
+            "type": "toggle",
+            "label": "Show time under each session"
+          },
+          "showSessionDescription": {
+            "type": "toggle",
+            "label": "Show description under each session"
+          },
+          "multipleSessions": {
+            "type": "toggle",
+            "label": "Allow choosing several sessions"
+          },
+          "hideFreeTicketChoice": {
+            "type": "toggle",
+            "label": "Hide ticket choice when every ticket is free"
+          },
+          "industryOptions": {
+            "type": "repeater",
+            "label": "Industry answers",
+            "fields": {
+              "value": {
+                "type": "text",
+                "label": "Stored value",
+                "maxLength": 40
+              },
+              "label": {
+                "type": "block",
+                "label": "Answer",
+                "fields": {
+                  "vi": {
+                    "type": "text",
+                    "label": "Vietnamese",
+                    "maxLength": 100
+                  },
+                  "en": {
+                    "type": "text",
+                    "label": "English",
+                    "maxLength": 100
+                  }
+                }
+              }
+            }
+          },
+          "roleOptions": {
+            "type": "repeater",
+            "label": "Attending-as answers",
+            "fields": {
+              "value": {
+                "type": "text",
+                "label": "Stored value",
+                "maxLength": 40
+              },
+              "label": {
+                "type": "block",
+                "label": "Answer",
+                "fields": {
+                  "vi": {
+                    "type": "text",
+                    "label": "Vietnamese",
+                    "maxLength": 100
+                  },
+                  "en": {
+                    "type": "text",
+                    "label": "English",
+                    "maxLength": 100
+                  }
+                }
+              }
+            }
+          },
+          "backgroundImage": {
+            "type": "image",
+            "label": "Form background (landscape, about 2000 x 860)",
+            "accept": "image/png,image/jpeg,image/webp"
+          },
+          "backgroundImageMobile": {
+            "type": "image",
+            "label": "Form background (portrait, about 860 x 1300)",
+            "accept": "image/png,image/jpeg,image/webp"
+          },
+          "termsText": {
+            "type": "block",
+            "label": "Terms checkbox text",
+            "fields": {
+              "vi": {
+                "type": "textarea",
+                "label": "Vietnamese",
+                "maxLength": 300
+              },
+              "en": {
+                "type": "textarea",
+                "label": "English",
+                "maxLength": 300
+              }
+            }
+          },
+          "termsDetail": {
+            "type": "block",
+            "label": "Full terms",
+            "fields": {
+              "vi": {
+                "type": "textarea",
+                "label": "Vietnamese",
+                "maxLength": 2000
+              },
+              "en": {
+                "type": "textarea",
+                "label": "English",
+                "maxLength": 2000
+              }
+            }
+          }
+        }
+      },
+      "Confirmation": {
+        "type": "block",
+        "label": "Confirmation screen",
+        "fields": {
+          "thankYouTitle": {
+            "type": "block",
+            "label": "Thank-you title",
+            "fields": {
+              "vi": {
+                "type": "text",
+                "label": "Vietnamese",
+                "maxLength": 150
+              },
+              "en": {
+                "type": "text",
+                "label": "English",
+                "maxLength": 150
+              }
+            }
+          },
+          "thankYouMessage": {
+            "type": "block",
+            "label": "Thank-you message",
+            "fields": {
+              "vi": {
+                "type": "textarea",
+                "label": "Vietnamese",
+                "maxLength": 500
+              },
+              "en": {
+                "type": "textarea",
+                "label": "English",
+                "maxLength": 500
+              }
+            }
+          }
+        }
+      },
+      "Footer": {
+        "type": "block",
+        "label": "Footer",
+        "fields": {
+          "note": {
+            "type": "block",
+            "label": "Footer note",
+            "fields": {
+              "vi": {
+                "type": "text",
+                "label": "Vietnamese",
+                "maxLength": 200
+              },
+              "en": {
+                "type": "text",
+                "label": "English",
+                "maxLength": 200
+              }
+            }
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,25 @@
+{
+  "event_name": "Internet Day 2026",
+  "ticket_types": [
+    { "id": 1, "ticket_name": "General", "ticket_code": "GENERAL", "price": "0.00",
+      "total_quantity": 500, "available_quantity": 462, "sold_quantity": 38,
+      "sale_start_time": "2026-10-01T00:00:00+07:00", "sale_end_time": "2026-12-01T00:00:00+07:00",
+      "description": "Exhibition area access" },
+    { "id": 2, "ticket_name": "VIP", "ticket_code": "VIP", "price": "0.00",
+      "total_quantity": 50, "available_quantity": 0, "sold_quantity": 50,
+      "sale_start_time": "2026-10-01T00:00:00+07:00", "sale_end_time": "2026-12-01T00:00:00+07:00",
+      "description": "Front row seating" }
+  ],
+  "sessions": [
+    { "id": 1, "name": "Full day", "session_code": "FULL", "start_time": "2026-12-03T08:00:00+07:00",
+      "end_time": "2026-12-03T17:00:00+07:00", "description": null },
+    { "id": 2, "name": "Morning", "session_code": "AM", "start_time": "2026-12-03T08:00:00+07:00",
+      "end_time": "2026-12-03T12:00:00+07:00", "description": null },
+    { "id": 3, "name": "Afternoon 1", "session_code": "PM1", "start_time": "2026-12-03T13:30:00+07:00",
+      "end_time": "2026-12-03T17:00:00+07:00", "description": null },
+    { "id": 4, "name": "Afternoon 2", "session_code": "PM2", "start_time": "2026-12-03T13:30:00+07:00",
+      "end_time": "2026-12-03T17:00:00+07:00", "description": null },
+    { "id": 5, "name": "Afternoon 3", "session_code": "PM3", "start_time": "2026-12-03T13:30:00+07:00",
+      "end_time": "2026-12-03T17:00:00+07:00", "description": null }
+  ]
+}

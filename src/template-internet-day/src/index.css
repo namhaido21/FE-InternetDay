@@ -1,0 +1,890 @@
+@layer components {
+  .rp-root {
+    /* Ticket and form fields are always white paper, whatever the page color is. */
+    --rp-paper: #ffffff;
+    --rp-ink: #0c2233;
+    --rp-ink-soft: #46596a;
+    --rp-invalid: #c4320a;
+    --rp-ticket-line: #dbe3e9;
+    --rp-ticket-placeholder: #eef2f5;
+    --rp-ticket-perforation: #b4c2cd;
+    --rp-ticket-shadow: rgb(3 18 30 / 0.2);
+    --rp-tick: #9fe3f7;
+    /* Theme.bodyFont and Theme.headingFont in schema.json replace these. */
+    --rp-font-body: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --rp-font-display: var(--rp-font-body);
+
+    position: relative;
+    isolation: isolate;
+    min-height: 100dvh;
+    overflow-x: clip;
+    color: var(--rp-text);
+    font-family: var(--rp-font-body);
+    font-size: 1rem;
+    line-height: 1.55;
+    background-color: var(--rp-bg);
+    background-image: var(--rp-page-wash);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .rp-root[data-scheme='dark'] {
+    /* Runs blue to green like the hero artwork, so hero and form read as one surface. */
+    --rp-page-shade: color-mix(in srgb, var(--rp-bg) 60%, #000000);
+    --rp-page-wash: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--rp-bg) 85%, var(--rp-secondary)) 0%,
+      color-mix(in srgb, var(--rp-primary) 22%, var(--rp-page-shade)) 50%,
+      color-mix(in srgb, var(--rp-primary) 30%, var(--rp-page-shade)) 100%
+    );
+    --rp-text: #ffffff;
+    --rp-text-soft: #dbe7ee;
+    --rp-line: rgb(255 255 255 / 0.3);
+    --rp-danger: #ffd5cb;
+    --rp-success: #bdf7d9;
+    --rp-ring: color-mix(in srgb, var(--rp-primary) 55%, #ffffff);
+    --rp-title-gradient: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--rp-primary) 18%, #ffffff),
+      color-mix(in srgb, var(--rp-secondary) 28%, #bfe4ff) 62%,
+      color-mix(in srgb, var(--rp-secondary) 18%, #d9d4ff)
+    );
+    --rp-field-border: transparent;
+  }
+
+  .rp-root[data-scheme='light'] {
+    --rp-page-wash: linear-gradient(
+      100deg,
+      color-mix(in srgb, var(--rp-bg) 95%, var(--rp-secondary)) 0%,
+      var(--rp-bg) 48%,
+      color-mix(in srgb, var(--rp-bg) 95%, var(--rp-primary)) 100%
+    );
+    --rp-text: #0c2233;
+    --rp-text-soft: #3d5163;
+    --rp-line: rgb(12 34 51 / 0.28);
+    --rp-danger: #a8200d;
+    --rp-success: #0b5f39;
+    --rp-ring: color-mix(in srgb, var(--rp-primary) 70%, #000000);
+    --rp-title-gradient: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--rp-primary) 62%, #000000),
+      color-mix(in srgb, var(--rp-secondary) 72%, #000000)
+    );
+    --rp-field-border: #6b7f90;
+  }
+
+  .rp-container {
+    width: 100%;
+    max-width: 77.5rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .rp-container {
+      padding-inline: 2rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .rp-container {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  /* ------------------------------ Hero ------------------------------ */
+
+  .rp-hero {
+    display: flex;
+  }
+
+  /*
+    The artwork is the page's backdrop, not the hero's: it is placed against .rp-root, in the bottom
+    corner, and fades out towards the content so only the globe shows.
+  */
+  .rp-hero__art {
+    position: absolute;
+    inset: auto 0 0;
+    z-index: -1;
+    pointer-events: none;
+    -webkit-mask-image: radial-gradient(ellipse 72% 100% at 100% 100%, #000 62%, transparent 100%);
+    mask-image: radial-gradient(ellipse 72% 100% at 100% 100%, #000 62%, transparent 100%);
+  }
+
+  .rp-hero__art img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* On narrow screens the content fills the width, so the globe gets its own room below it. */
+  .rp-root:has(.rp-hero__art) {
+    padding-bottom: 40vw;
+  }
+
+  @media (min-width: 640px) {
+    .rp-root:has(.rp-hero__art) {
+      padding-bottom: 22vw;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .rp-root:has(.rp-hero__art) {
+      padding-bottom: 0;
+    }
+  }
+
+  /* The logos sit a little wider than the content, staying clear of the screen edge. */
+  @media (min-width: 640px) {
+    .rp-hero__logos {
+      margin-inline: -1rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .rp-hero__logos {
+      margin-inline: -2.5rem;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .rp-hero__logos {
+      margin-inline: -4rem;
+    }
+  }
+
+  .rp-hero__title {
+    font-family: var(--rp-font-display);
+    font-weight: 700;
+    font-size: clamp(2.5rem, 6.6vw, 5.25rem);
+    line-height: 0.98;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  /* -------------------------- Agenda rail --------------------------- */
+
+  .rp-agenda {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
+    column-gap: 1.5rem;
+  }
+
+  .rp-agenda > li {
+    position: relative;
+    padding: 0.875rem 0 0.25rem;
+    border-top: 1px solid var(--rp-line);
+  }
+
+  /* The tick on each stop echoes the bright core of the light streaks in the artwork. */
+  .rp-agenda > li::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 2.25rem;
+    height: 3px;
+    border-radius: 3px;
+    background: var(--rp-ring);
+  }
+
+  @media (max-width: 639px) {
+    .rp-agenda {
+      grid-template-columns: 1fr;
+    }
+
+    .rp-agenda > li {
+      display: grid;
+      grid-template-columns: 3.75rem 1fr;
+      gap: 0.5rem;
+      padding-block: 0.625rem;
+    }
+
+    .rp-agenda > li::before {
+      width: 1.5rem;
+    }
+  }
+
+  /* ------------------------ Headline and groups --------------------- */
+
+  .rp-form-title {
+    font-family: var(--rp-font-display);
+    font-weight: 700;
+    font-size: clamp(2.25rem, 5.2vw, 3.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.005em;
+    color: var(--rp-text);
+    /* The gradient only paints inside the box, so give Vietnamese accents room and take it back. */
+    padding: 0.22em 0.04em 0.04em;
+    margin: -0.22em -0.04em -0.04em;
+    background: var(--rp-title-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @media (forced-colors: active) {
+    .rp-form-title {
+      -webkit-text-fill-color: currentColor;
+    }
+  }
+
+  /* A streak of light in place of a plain rule, taken from the banner artwork. */
+  .rp-streak {
+    height: 1px;
+    border: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--rp-line) 12%,
+      color-mix(in srgb, var(--rp-ring) 80%, transparent) 42%,
+      var(--rp-line) 74%,
+      transparent
+    );
+  }
+
+  .rp-group-title {
+    font-weight: 700;
+    font-size: 1.125rem;
+    line-height: 1.35;
+  }
+
+  /* ------------------------------ Poster ---------------------------- */
+
+  /*
+    The form is laid out as the print form: its portrait page below 1024px and its landscape page
+    above. Sizes in vw keep the proportions of those pages. Keep 1024px in step with config.ts.
+  */
+  .rp-form-shell {
+    --rp-gutter: 1rem;
+    --rp-pill: 2.75rem;
+  }
+
+  .rp-poster {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: clamp(1.5rem, 14vw, 8.5rem) var(--rp-gutter) clamp(2.5rem, 10vw, 6rem);
+  }
+
+  /* The height of the portrait page, so the globe sits below the fields as printed. */
+  .rp-poster:has(.rp-poster__art) {
+    min-height: 150.9vw;
+  }
+
+  /* With no artwork to leave room for, the submit button stays close to the fields. */
+  .rp-poster:not(:has(.rp-poster__art)) {
+    padding-bottom: 1rem;
+  }
+
+  .rp-poster__art {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    -webkit-mask-image: linear-gradient(transparent, #000 4%, #000 90%, transparent);
+    mask-image: linear-gradient(transparent, #000 4%, #000 90%, transparent);
+  }
+
+  .rp-poster__art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right bottom;
+  }
+
+  .rp-poster__head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: clamp(2rem, 10vw, 6rem);
+    align-items: center;
+    margin-bottom: clamp(1.75rem, 8vw, 4.5rem);
+  }
+
+  .rp-poster__logo {
+    grid-area: 1 / 1;
+    width: min(100%, 29vw);
+    height: auto;
+  }
+
+  .rp-poster__partner {
+    grid-area: 1 / 2;
+    justify-self: end;
+    width: min(100%, 28vw);
+    height: auto;
+    margin-right: -1.9vw;
+  }
+
+  .rp-poster__title {
+    grid-area: 2 / 1 / auto / -1;
+    /* As wide as its words, so the gradient runs its full length across them. */
+    justify-self: center;
+    font-size: clamp(1.75rem, 7.6vw, 4.5rem);
+    text-align: center;
+    scroll-margin-top: clamp(4rem, 20vw, 10rem);
+  }
+
+  /* Without its logos the head is only the title, so it needs no columns and less room above. */
+  .rp-poster[data-logos='false'] {
+    padding-top: clamp(1.5rem, 8vw, 4rem);
+  }
+
+  .rp-poster[data-logos='false'] .rp-poster__head {
+    grid-template-columns: 1fr;
+    row-gap: 0;
+  }
+
+  .rp-poster[data-logos='false'] .rp-poster__title {
+    grid-area: auto;
+    margin-top: 0;
+  }
+
+  .rp-poster__body {
+    display: grid;
+    row-gap: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  .rp-field-stack {
+    display: grid;
+    min-width: 0;
+    gap: 0.625rem;
+  }
+
+  .rp-form-extras {
+    display: grid;
+    gap: 2rem;
+    padding: 1.5rem var(--rp-gutter) 4rem;
+  }
+
+  @media (min-width: 1024px) {
+    .rp-poster {
+      padding-block: 1.1vw 1.875rem;
+    }
+
+    .rp-poster:has(.rp-poster__art) {
+      min-height: 0;
+    }
+
+    .rp-poster__head {
+      grid-template-columns: 22vw 1fr 22vw;
+      row-gap: 0;
+      align-items: start;
+      margin-bottom: 1.5rem;
+    }
+
+    .rp-poster__logo {
+      grid-area: 1 / 1;
+      width: 100%;
+    }
+
+    .rp-poster__partner {
+      grid-area: 1 / 3;
+      width: 15.6vw;
+      margin-right: 1.4vw;
+    }
+
+    .rp-poster__title {
+      grid-area: 1 / 2;
+      margin-top: 2.6vw;
+      font-size: clamp(2.25rem, 2.9vw, 3.5rem);
+      scroll-margin-top: 1rem;
+    }
+
+    .rp-poster__body {
+      row-gap: 0.625rem;
+    }
+
+    .rp-field-stack {
+      gap: 0.5rem;
+    }
+  }
+
+  /* ----------------------------- Fields ----------------------------- */
+
+  /* Every row repeats this template, so the columns line up without a shared parent grid. */
+  .rp-field-row {
+    display: grid;
+    grid-template-columns: minmax(7.25rem, 30%) minmax(0, 1fr);
+    column-gap: 0.625rem;
+    align-items: start;
+  }
+
+  .rp-field-row__control {
+    grid-column: 2;
+  }
+
+  .rp-field-row__slot {
+    grid-column: 1 / -1;
+  }
+
+  /* The label is as tall as the pill, so one or two lines of it stay centered against the pill. */
+  .rp-field-row__label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: var(--rp-pill);
+    font-size: 0.875rem;
+    line-height: 1.2;
+    text-align: right;
+  }
+
+  .rp-field-row__label > span::after {
+    content: ':';
+  }
+
+  @media (min-width: 640px) {
+    .rp-form-shell {
+      --rp-gutter: clamp(1rem, 5.8vw, 3.5rem);
+      --rp-pill: 2.375rem;
+    }
+
+    .rp-field-row {
+      grid-template-columns: 33.4% minmax(0, 1fr);
+      column-gap: 1.375rem;
+    }
+
+    .rp-field-row__label {
+      font-size: 1rem;
+    }
+
+    /* The inputs stop short of the logos on the right, as printed. */
+    .rp-poster__body {
+      padding-right: 2.8vw;
+    }
+
+    .rp-field-row__slot--wide {
+      margin-inline: 5.8vw -6.5vw;
+    }
+
+    /* Everything below the form follows the column of inputs. */
+    .rp-form-extras {
+      padding-right: calc(var(--rp-gutter) + 2.8vw);
+    }
+
+    .rp-form-extras .rp-field-row__slot {
+      grid-column: 2;
+    }
+  }
+
+  /* On the landscape page the inputs are centered and the labels hang to their left. */
+  @media (min-width: 1024px) {
+    .rp-form-shell {
+      --rp-gutter: 1.6vw;
+    }
+
+    .rp-field-row {
+      grid-template-columns: minmax(0, 1fr) clamp(30rem, 37.5vw, 46rem) minmax(0, 1fr);
+    }
+
+    .rp-field-row__slot {
+      grid-column: 2;
+    }
+
+    /* The session choices start just left of the inputs and run past them, as printed. */
+    .rp-field-row__label {
+      font-size: 1.0625rem;
+    }
+
+    .rp-poster__body {
+      padding-right: 0;
+    }
+
+    .rp-field-row__slot--wide {
+      margin-inline: -1.0625rem -5.4rem;
+    }
+
+    .rp-form-extras {
+      padding-right: var(--rp-gutter);
+    }
+  }
+
+  .rp-input {
+    display: block;
+    width: 100%;
+    min-height: var(--rp-pill, 2.75rem);
+    padding: 0.375rem 1.375rem;
+    border: 1px solid var(--rp-field-border);
+    border-radius: 999px;
+    background-color: var(--rp-paper);
+    color: var(--rp-ink);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: box-shadow 0.15s ease-out;
+  }
+
+  .rp-select {
+    padding-inline: 0.625rem 1.5rem;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 10'%3E%3Cpath fill='%23808080' d='M0 0h12L6 10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 0.75rem;
+    text-overflow: ellipsis;
+    cursor: pointer;
+  }
+
+  @media (min-width: 640px) {
+    .rp-select {
+      padding-inline: 2.875rem 2.75rem;
+      background-position: right 1.0625rem center;
+    }
+  }
+
+  .rp-select[data-empty='true'] {
+    color: var(--rp-ink-soft);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .rp-select option {
+    color: var(--rp-ink);
+    font-style: normal;
+  }
+
+  .rp-input::placeholder {
+    color: var(--rp-ink-soft);
+    font-style: italic;
+    font-weight: 400;
+    opacity: 1;
+  }
+
+  .rp-input[aria-invalid='true'] {
+    box-shadow: inset 0 0 0 2px var(--rp-invalid);
+  }
+
+  .rp-root :is(input, select, button, summary, a, [tabindex='-1']):focus-visible {
+    outline: 3px solid var(--rp-ring);
+    outline-offset: 2px;
+  }
+
+  .rp-root :is(h1, h2)[tabindex='-1']:focus-visible {
+    outline: none;
+  }
+
+  .rp-error {
+    display: flex;
+    gap: 0.4375rem;
+    margin-top: 0.4375rem;
+    color: var(--rp-danger);
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .rp-error svg {
+    flex: none;
+    margin-top: 0.125rem;
+  }
+
+  .rp-success {
+    color: var(--rp-success);
+  }
+
+  /* ---------------------------- Radio mark -------------------------- */
+
+  .rp-mark {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 2.375rem;
+    height: 2.375rem;
+    border: 1px solid var(--rp-field-border);
+    border-radius: 999px;
+    background: var(--rp-paper);
+    color: var(--rp-on-primary);
+    transition: background-color 0.15s ease-out;
+  }
+
+  .rp-mark[data-checked='true'] {
+    border-color: transparent;
+    background: var(--rp-primary);
+  }
+
+  .rp-mark[data-disabled='true'] {
+    border: 1.5px solid var(--rp-line);
+    background: transparent;
+    color: var(--rp-text-soft);
+  }
+
+  .rp-choice:has(input:focus-visible) .rp-mark {
+    outline: 3px solid var(--rp-ring);
+    outline-offset: 2px;
+  }
+
+  /* ---------------------------- Ticket rows ------------------------- */
+
+  .rp-ticket-option {
+    position: relative;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    min-height: 2.75rem;
+    cursor: pointer;
+  }
+
+  .rp-ticket-option[data-disabled='true'] {
+    cursor: not-allowed;
+  }
+
+  /* -------------------------- Session choice ------------------------ */
+
+  .rp-group-header {
+    display: flex;
+    gap: 0.625rem;
+    align-items: center;
+    margin-bottom: 0.625rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .rp-group-header__tick {
+    flex: none;
+    color: var(--rp-tick);
+  }
+
+  .rp-group-header__tick[data-done='true'] {
+    color: var(--rp-ring);
+  }
+
+  .rp-session-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.25rem 0.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .rp-session-grid {
+      grid-template-columns: repeat(var(--rp-session-columns), minmax(0, 1fr));
+      column-gap: 1rem;
+    }
+
+    .rp-session[data-row-start='true'] {
+      grid-column-start: 1;
+    }
+  }
+
+  .rp-session {
+    position: relative;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    min-height: 2.75rem;
+    cursor: pointer;
+  }
+
+  :is(.rp-session, .rp-ticket-option[data-disabled='false']):hover .rp-mark:not([data-checked='true']) {
+    background: color-mix(in srgb, var(--rp-primary) 28%, var(--rp-paper));
+  }
+
+  /* --------------------------- Terms checkbox ----------------------- */
+
+  .rp-checkbox {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border: 1px solid var(--rp-field-border);
+    border-radius: 0.5rem;
+    background: var(--rp-paper);
+    color: var(--rp-on-primary);
+    transition: background-color 0.15s ease-out;
+  }
+
+  .rp-checkbox[data-checked='true'] {
+    border-color: transparent;
+    background: var(--rp-primary);
+  }
+
+  .rp-checkbox[data-invalid='true'] {
+    box-shadow: inset 0 0 0 2px var(--rp-invalid);
+  }
+
+  .rp-choice:has(input:focus-visible) .rp-checkbox {
+    outline: 3px solid var(--rp-ring);
+    outline-offset: 2px;
+  }
+
+  /* ----------------------------- Buttons ---------------------------- */
+
+  .rp-button {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.625rem 1.5rem;
+    border-radius: 999px;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+      background-color 0.15s ease-out,
+      color 0.15s ease-out,
+      transform 0.1s ease-out;
+    touch-action: manipulation;
+  }
+
+  .rp-button:active:not(:disabled) {
+    transform: scale(0.985);
+  }
+
+  .rp-button:disabled {
+    cursor: progress;
+  }
+
+  .rp-button--primary {
+    width: 100%;
+    min-height: 3.5rem;
+    background: var(--rp-primary);
+    color: var(--rp-on-primary);
+    font-size: 1.0625rem;
+  }
+
+  .rp-button--primary:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--rp-primary) 86%, var(--rp-paper));
+  }
+
+  .rp-button--primary:disabled {
+    background: color-mix(in srgb, var(--rp-primary) 62%, var(--rp-bg));
+  }
+
+  .rp-button--jump {
+    width: auto;
+    min-height: 3rem;
+    padding-inline: 1.75rem;
+    font-size: 1rem;
+    text-shadow: none;
+  }
+
+  .rp-button--quiet {
+    flex: none;
+    border: 1.5px solid var(--rp-text);
+    color: var(--rp-text);
+    font-size: 0.9375rem;
+  }
+
+  .rp-form-shell .rp-button--quiet {
+    min-height: var(--rp-pill);
+    padding-block: 0.375rem;
+  }
+
+  .rp-button--quiet:hover:not(:disabled) {
+    background: var(--rp-text);
+    color: var(--rp-bg);
+  }
+
+  /* ------------------------------ Ticket ---------------------------- */
+
+  .rp-ticket {
+    --rp-notch: 0.8125rem;
+    filter: drop-shadow(0 0.75rem 1.5rem var(--rp-ticket-shadow));
+    color: var(--rp-ink);
+  }
+
+  .rp-ticket__top,
+  .rp-ticket__bottom {
+    position: relative;
+    background: var(--rp-paper);
+  }
+
+  .rp-ticket__top {
+    padding: 1.625rem 1.5rem 1.25rem;
+    border-radius: 1.25rem 1.25rem 0 0;
+    overflow: hidden;
+    -webkit-mask:
+      radial-gradient(circle var(--rp-notch) at 0 100%, transparent 97%, #000) left / 51% 100% no-repeat,
+      radial-gradient(circle var(--rp-notch) at 100% 100%, transparent 97%, #000) right / 51% 100% no-repeat;
+    mask:
+      radial-gradient(circle var(--rp-notch) at 0 100%, transparent 97%, #000) left / 51% 100% no-repeat,
+      radial-gradient(circle var(--rp-notch) at 100% 100%, transparent 97%, #000) right / 51% 100% no-repeat;
+  }
+
+  .rp-ticket__top::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    height: 0.375rem;
+    background: linear-gradient(90deg, var(--rp-secondary), var(--rp-primary));
+  }
+
+  .rp-ticket__bottom {
+    padding: 1.25rem 1.5rem 1.5rem;
+    border-radius: 0 0 1.25rem 1.25rem;
+    -webkit-mask:
+      radial-gradient(circle var(--rp-notch) at 0 0, transparent 97%, #000) left / 51% 100% no-repeat,
+      radial-gradient(circle var(--rp-notch) at 100% 0, transparent 97%, #000) right / 51% 100% no-repeat;
+    mask:
+      radial-gradient(circle var(--rp-notch) at 0 0, transparent 97%, #000) left / 51% 100% no-repeat,
+      radial-gradient(circle var(--rp-notch) at 100% 0, transparent 97%, #000) right / 51% 100% no-repeat;
+  }
+
+  /* Perforation between the two halves of the ticket. */
+  .rp-ticket__bottom::before {
+    content: '';
+    position: absolute;
+    inset: 0 1.375rem auto;
+    border-top: 2px dashed var(--rp-ticket-perforation);
+  }
+
+  .rp-ticket__title {
+    font-family: var(--rp-font-display);
+    font-weight: 700;
+    font-size: 1.625rem;
+    line-height: 1.08;
+  }
+
+  .rp-ticket__term {
+    color: var(--rp-ink-soft);
+    font-size: 0.8125rem;
+    font-weight: 500;
+  }
+
+  .rp-ticket__value {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+
+  .rp-ticket__value[data-empty='true'] {
+    color: var(--rp-ink-soft);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .rp-ticket__total {
+    font-family: var(--rp-font-display);
+    font-weight: 700;
+    font-size: 2.125rem;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .rp-ticket__code {
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.1;
+    letter-spacing: 0.08em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------------------------- Disclosure -------------------------- */
+
+  .rp-details summary {
+    display: inline-block;
+    min-height: 1.5rem;
+    color: var(--rp-text);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rp-root *,
+    .rp-root *::before,
+    .rp-root *::after {
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
